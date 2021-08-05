@@ -1,0 +1,22 @@
+## 螺丝钉
+> 连接每个连接点。基于shell简单的安装各种软件。
+
+## 支持列表
+1. jdk
+2. zookeeper
+3. mysql
+4. hadoop
+5. hbase
+
+## 使用
+```shell
+bash install {软件名(版本号)}
+bash install jdk
+bash install jdk-8u221-linux-x64
+```
+
+## 下载方式
+1. 提供默认配置地址（官方下载）
+2. 支持下载列表方式
+
+## 插件编写方式

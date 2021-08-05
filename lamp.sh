@@ -29,7 +29,7 @@ yum install -y git wget
 
 # 下载安装目录
 cd /environmental
-#git clone 
+git clone  https://github.com/githublaohu/screw.git
 
 # start 安装
 if [ ! -f "/usr/local/bin/start" ]; then
