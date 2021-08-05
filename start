@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+jar=`ls | grep *.jar`
+echo “jar is $jar”
+pid=`ps -elf | grep $jar  | grep java | awk  '{print $4}'`
+echo "pid is $pid"
+if [ -n "$pid" ];then
+	kill $pid
+fi
+
+#--spring.profiles.active=test
+
+nohup java -jar $jar  -Xms512m -Xmx1024m -XX:PermSize=128m &
+
+file="logs/"`ls -lt ./logs/ | awk  'NR==2{print $9}'`
+echo $file
+tail -f -n 200  $file
