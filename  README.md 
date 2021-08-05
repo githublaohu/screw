@@ -8,6 +8,17 @@
 4. hadoop
 5. hbase
 
+## 下载
+#### github
+```shell
+mkdir /environmental && cd /environmental && yum install -y wget git && git  clone https://github.com/githublaohu/screw.git && cd screw
+```
+
+#### gitee
+```shell
+mkdir /environmental && cd /environmental && yum install -y wget git && git  clone https://github.com/githublaohu/screw.git && cd screw
+```
+
 ## 使用
 ```shell
 bash install {软件名(版本号)}
