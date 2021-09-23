@@ -25,7 +25,7 @@ mkdir -p $env_data
 mkdir -p $env_project
 
 # 初始化基本软件
-yum install -y git wget
+yum install -y git wget unzip
 
 # 下载安装目录
 cd /environmental

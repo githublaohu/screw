@@ -1,0 +1,1 @@
+export ROCKETMQ_HOME=/environmental/software/rocketmq

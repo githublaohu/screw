@@ -63,6 +63,9 @@ case "$suffix" in
     gz)
         tar -zxvf $filename
         ;;
+    zip)
+        unzip $filename
+        ;;
 esac
 
 # 删除压缩包
@@ -74,13 +77,25 @@ tarfile=`ls`
 mv $tarfile $name
 echo "重命名后 `ls`"
 
-# 删除 /environmental/software/ 下文件
-echo "删除原来安装的文件 `ls $env_software`"
-rm -fr $env_software/$name
-echo "原来的目录文件 `ls  $env_software`"
-# mv 到 /environmental/software/
-mv $name $env_software
-echo "移动后的目录文件 `ls  $env_software`"
+compile=$CRTDIR"/"$name"/compile.sh"
+echo "compile is $compile"
+if [  -f $compile ];then
+    # 删除 /environmental/software/ 下文件
+    echo "删除原来安装的文件 `ls $env_software`"
+    rm -fr $env_software/$name
+    echo "执行编译脚本： $compile"
+    sh $compile
+    echo "编译脚本执行成功"
+    rm -fr $name
+else
+   # 删除 /environmental/software/ 下文件
+   echo "删除原来安装的文件 `ls $env_software`"
+   rm -fr $env_software/$name
+   echo "原来的目录文件 \n `ls  $env_software`"
+   # mv 到 /environmental/software/
+   mv $name $env_software
+   echo "移动后的目录文件 \n `ls  $env_software`"
+fi
 
 # 软链 环境配置
 cd $CRTDIR
