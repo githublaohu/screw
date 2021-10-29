@@ -12,4 +12,4 @@ make -j $cpu_num   PREFIX=/environmental/software/redis install
 cp ./redis.conf /environmental/software/redis/config/
 
 cd $env_software/redis
-./bin/redis-server ./config/redis.conf  &
+nohup ./bin/redis-server ./config/redis.conf  >  redis.log  2>&1 &

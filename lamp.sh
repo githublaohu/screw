@@ -24,8 +24,26 @@ mkdir -p $env_data
 # 项目目录
 mkdir -p $env_project
 
+
+os_name=`uname  -a`
+
+darwin="Darwin"
+centos="centos"
+ubuntu="ubuntu"
+
+if [[ $os_name =~ $darwin ]];then
+    echo "mac"
+elif [[ $os_name =~ $centos ]];then
+    echo "centos"
+    yum install -y git wget unzip
+elif [[ $os_name =~ $ubuntu ]];then
+    echo "ubuntu"
+    apt-get install -y git wget unzip
+else
+    echo $os_name
+fi
+
 # 初始化基本软件
-yum install -y git wget unzip
 
 # 下载安装目录
 cd /environmental
