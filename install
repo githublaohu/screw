@@ -5,7 +5,7 @@ export env_file=/environmental/file/base/
 export env_software=/environmental/software/
 
 
-CRTDIR=$(pwd)
+export CRTDIR=$(pwd)
 name=$1
 mode=$2
 echo "name is $name mode is $mode"
@@ -89,29 +89,30 @@ if [  -f $compile ];then
     rm -fr $name
 else
    # 删除 /environmental/software/ 下文件
-   echo "删除原来安装的文件 `ls $env_software`"
-   rm -fr $env_software/$name
+   echo "删除原来安装的文件 \n `ls $env_software`"
+   rm -fr $env_software/$software
+   mv $name $software
    echo "原来的目录文件 \n `ls  $env_software`"
    # mv 到 /environmental/software/
-   mv $name $env_software
+   mv $software $env_software
    echo "移动后的目录文件 \n `ls  $env_software`"
 fi
 
 # 软链 环境配置
 cd $CRTDIR
-lnfile=$CRTDIR/$name/$name".sh"
+lnfile=$CRTDIR/$software/$software".sh"
 echo "寻找软链，软链地址是 $lnfile"
 if [  -f $lnfile ];then
     echo "创建软链"
-    lnfilename="/etc/profile.d/$name.sh"
+    lnfilename="/etc/profile.d/$software.sh"
 	ln -s $lnfile  $lnfilename
     source /etc/profile
 fi
 # 调用install.sh
 if [ ! -n "$mode" ];then
-    installfile="./"$name"/install.sh"
+    installfile="./"$software"/install.sh"
 else
-    installfile="./"$name"/install-"$mode".sh"
+    installfile="./"$software"/install-"$mode".sh"
 fi
 
 if [  -f $installfile ];then
