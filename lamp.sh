@@ -41,6 +41,8 @@ elif [[ $os_name =~ $ubuntu ]];then
     apt-get install -y git wget unzip
 else
     echo $os_name
+    yum install -y git wget unzip
+    apt-get install -y git wget unzip
 fi
 
 # 初始化基本软件
