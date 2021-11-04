@@ -106,8 +106,9 @@ if [  -f $lnfile ];then
     echo "创建软链"
     lnfilename="/etc/profile.d/$software.sh"
 	ln -s $lnfile  $lnfilename
-    source /etc/profile
 fi
+echo " 执行  source  /etc/profile"
+source /etc/profile
 # 调用install.sh
 if [ ! -n "$mode" ];then
     installfile="./"$software"/install.sh"

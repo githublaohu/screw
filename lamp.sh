@@ -49,7 +49,7 @@ fi
 
 # 下载安装目录
 cd /environmental
-git clone  https://github.com/githublaohu/screw.git
+git clone  https://gitee.com/oschina_laohu/screw.git
 
 # start 安装
 if [ ! -f "/usr/local/bin/start" ]; then
