@@ -9,6 +9,8 @@ export env_software=/environmental/software/
 # 存储都要在data创建对应的目录
 export env_data=/environmental/data/
 
+export env_config=/environmental/config
+
 # 项目在project都有一个文件
 export env_project=/environmental/project
 
@@ -20,6 +22,9 @@ mkdir -p $env_software
 
 # 存储目录
 mkdir -p $env_data
+
+# 配置目录
+mkdir -p $env_config
 
 # 项目目录
 mkdir -p $env_project

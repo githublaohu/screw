@@ -1,6 +1,23 @@
 ## 螺丝钉
 > 连接每个连接点。基于shell简单的安装各种软件。
 
+## 使用说明
+第一步：找到lamp.sh文件
+第二步：复制lamp.sh文件内容
+第三步：在操作系统创建lamp.sh文件
+第四步：把复制内容写入lamp.sh
+第五步：sh lamp.sh
+
+## 目录说明
+| 目录 | 说明 |
+| -- |--|
+| data | 存储的数据目录 |
+| logs    |  组件的日志目录 |
+| file    | 文件下载目录 |
+| software | 软件安装目录 |
+| project    | 项目部署目录|
+| screw | screw的git目录 |
+
 ## 支持列表
 1. jdk
 2. zookeeper
@@ -11,13 +28,14 @@
 ## 下载
 #### github
 ```shell
-mkdir /environmental && cd /environmental && yum install -y wget git && git  clone https://github.com/githublaohu/screw.git && cd screw
+mkdir /environmental && cd /environmental && yum install -y wget git && git  clone https://github.com/githublaohu/screw.git && cd screw && sh lamp.sh
 ```
 
 #### gitee
 ```shell
-mkdir /environmental && cd /environmental && yum install -y wget git && git  clone https://gitee.com/githublaohu/screw.git && cd screw
+mkdir /environmental && cd /environmental && yum install -y wget git && git  clone https://gitee.com/githublaohu/screw.git && cd screw && sh lamp.sh
 ```
+
 
 ## 使用
 ```shell

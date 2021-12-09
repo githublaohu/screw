@@ -3,6 +3,7 @@
 export env_base=/environmental
 export env_file=/environmental/file/base
 export env_software=/environmental/software
+export env_config=/environmental/config
 
 
 export CRTDIR=$(pwd)
@@ -121,6 +122,21 @@ if [  -f $installfile ];then
     sh $installfile
 fi
 
+# 找是否存在配置文件
+if [ ! -n "$mode" ];then
+    config_file=`ls ./$software/$software.* | awk 'NR==1'`
+else
+    config_file=`ls ./$software/$software-$mode.* | awk 'NR==1'`
+fi
+
+echo "配置文件：$config_file"
+
+if [  -f $config_file ];then
+    echo "创建目录 $env_config/$software"
+    mkdir  -p $env_config/$software
+    echo "复制文件：config_file 到指定目录"
+    cp $config_file  $env_config/$software
+fi
 # 输出接下来步骤
 
 
