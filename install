@@ -75,7 +75,7 @@ rm $filename
 # 重命名
 echo "重命名前 `ls`"
 tarfile=`ls`
-mv $tarfile $name
+mv $tarfile $software
 echo "重命名后 `ls`"
 
 compile=$CRTDIR"/"$name"/compile.sh"
@@ -137,6 +137,8 @@ if [  -f $config_file ];then
     echo "复制文件：config_file 到指定目录"
     cp $config_file  $env_config/$software
 fi
+
+mkdir -p $env_base/logs/$software
 # 输出接下来步骤
 
 
